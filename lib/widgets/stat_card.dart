@@ -8,6 +8,7 @@ class StatCard extends StatelessWidget {
     required this.icon,
     required this.color,
     this.hint,
+    this.dense = false,
   });
 
   final String label;
@@ -15,12 +16,13 @@ class StatCard extends StatelessWidget {
   final IconData icon;
   final Color color;
   final String? hint;
+  final bool dense;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(dense ? 12 : 16),
       decoration: BoxDecoration(
         color: theme.colorScheme.surfaceContainerLowest,
         borderRadius: BorderRadius.circular(18),
@@ -34,12 +36,12 @@ class StatCard extends StatelessWidget {
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: EdgeInsets.all(dense ? 6 : 8),
                 decoration: BoxDecoration(
                   color: color.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(icon, size: 18, color: color),
+                child: Icon(icon, size: dense ? 15 : 18, color: color),
               ),
               const Spacer(),
               if (hint != null)
@@ -56,10 +58,11 @@ class StatCard extends StatelessWidget {
                 ),
             ],
           ),
-          const SizedBox(height: 14),
+          SizedBox(height: dense ? 10 : 14),
           Text(
             value,
-            style: theme.textTheme.headlineSmall?.copyWith(
+            style: (dense ? theme.textTheme.titleLarge : theme.textTheme.headlineSmall)
+                ?.copyWith(
               fontWeight: FontWeight.w800,
               height: 1,
             ),
@@ -67,10 +70,11 @@ class StatCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             label,
-            maxLines: 1,
+            maxLines: dense ? 2 : 1,
             overflow: TextOverflow.ellipsis,
             style: theme.textTheme.bodySmall?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
+              height: 1.25,
             ),
           ),
         ],

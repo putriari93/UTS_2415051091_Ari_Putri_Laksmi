@@ -275,42 +275,55 @@ class _StatsSection extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        final columns = constraints.maxWidth >= 720 ? 3 : 2;
+        final compact = constraints.maxWidth < 600;
         const gap = 12.0;
+        final columns = compact ? 3 : 3;
         final itemWidth = (constraints.maxWidth - gap * (columns - 1)) / columns;
+
+        final cards = [
+          StatCard(
+            label: 'Sedang dipinjam',
+            value: '${loanProvider.activeCount}',
+            icon: Icons.menu_book_rounded,
+            color: colors.primary,
+            dense: compact,
+          ),
+          StatCard(
+            label: 'Perlu perhatian',
+            value: '${loanProvider.dueSoonLoans.length}',
+            icon: Icons.schedule_rounded,
+            color: colors.tertiary,
+            hint: compact ? null : '≤ 3 hari',
+            dense: compact,
+          ),
+          StatCard(
+            label: 'Selesai',
+            value: '${loanProvider.returnedCount}',
+            icon: Icons.task_alt_rounded,
+            color: colors.secondary,
+            dense: compact,
+          ),
+        ];
+
+        if (compact) {
+          return IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                for (var index = 0; index < cards.length; index++) ...[
+                  if (index > 0) const SizedBox(width: gap),
+                  Expanded(child: cards[index]),
+                ],
+              ],
+            ),
+          );
+        }
 
         return Wrap(
           spacing: gap,
           runSpacing: gap,
           children: [
-            SizedBox(
-              width: itemWidth,
-              child: StatCard(
-                label: 'Sedang dipinjam',
-                value: '${loanProvider.activeCount}',
-                icon: Icons.menu_book_rounded,
-                color: colors.primary,
-              ),
-            ),
-            SizedBox(
-              width: itemWidth,
-              child: StatCard(
-                label: 'Perlu perhatian',
-                value: '${loanProvider.dueSoonLoans.length}',
-                icon: Icons.schedule_rounded,
-                color: colors.tertiary,
-                hint: '≤ 3 hari',
-              ),
-            ),
-            SizedBox(
-              width: itemWidth,
-              child: StatCard(
-                label: 'Selesai',
-                value: '${loanProvider.returnedCount}',
-                icon: Icons.task_alt_rounded,
-                color: colors.secondary,
-              ),
-            ),
+            for (final card in cards) SizedBox(width: itemWidth, child: card),
           ],
         );
       },
