@@ -151,8 +151,8 @@ Alur data: **UI → Provider → Repository → Service → REST API / Supabase*
 ### 1. Ambil source code
 
 ```bash
-git clone <URL_REPOSITORY>
-cd uts_mobile_development
+git clone https://github.com/putriari93/uts_flutter_ui_fundamentals.git
+cd uts_flutter_ui_fundamentals
 flutter pub get
 ```
 
