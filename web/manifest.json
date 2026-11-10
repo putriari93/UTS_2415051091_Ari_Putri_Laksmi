@@ -1,11 +1,11 @@
 {
-    "name": "uts_mobile_development",
-    "short_name": "uts_mobile_development",
+    "name": "Lentera Pustaka",
+    "short_name": "Lentera",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Katalog buku Open Library dan pencatatan peminjaman di Supabase.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
