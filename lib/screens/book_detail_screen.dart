@@ -321,7 +321,8 @@ class _AvailabilityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
-    final isBorrowed = activeLoan != null;
+    final loan = activeLoan;
+    final isBorrowed = loan != null;
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -350,7 +351,7 @@ class _AvailabilityCard extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   isBorrowed
-                      ? 'Oleh ${activeLoan.borrowerName} · jatuh tempo ${Formatters.date(activeLoan.dueDate)}'
+                      ? 'Oleh ${loan.borrowerName} · jatuh tempo ${Formatters.date(loan.dueDate)}'
                       : 'Belum ada catatan peminjaman aktif untuk buku ini.',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: isBorrowed ? colors.onTertiaryContainer : colors.onPrimaryContainer,
