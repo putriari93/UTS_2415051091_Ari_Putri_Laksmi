@@ -139,27 +139,39 @@ class ProfileScreen extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 14),
-                              SegmentedButton<ThemeMode>(
-                                segments: const [
-                                  ButtonSegment(
-                                    value: ThemeMode.light,
-                                    icon: Icon(Icons.light_mode_outlined, size: 16),
-                                    label: Text('Terang'),
-                                  ),
-                                  ButtonSegment(
-                                    value: ThemeMode.dark,
-                                    icon: Icon(Icons.dark_mode_outlined, size: 16),
-                                    label: Text('Gelap'),
-                                  ),
-                                  ButtonSegment(
-                                    value: ThemeMode.system,
-                                    icon: Icon(Icons.settings_suggest_outlined, size: 16),
-                                    label: Text('Sistem'),
-                                  ),
-                                ],
-                                selected: {themeProvider.mode},
-                                onSelectionChanged: (selection) {
-                                  themeProvider.setMode(selection.first);
+                              Builder(
+                                builder: (context) {
+                                  final compactSegments =
+                                      MediaQuery.sizeOf(context).width < 420;
+                                  return SegmentedButton<ThemeMode>(
+                                    segments: [
+                                      ButtonSegment(
+                                        value: ThemeMode.light,
+                                        icon: compactSegments
+                                            ? null
+                                            : const Icon(Icons.light_mode_outlined, size: 16),
+                                        label: const Text('Terang'),
+                                      ),
+                                      ButtonSegment(
+                                        value: ThemeMode.dark,
+                                        icon: compactSegments
+                                            ? null
+                                            : const Icon(Icons.dark_mode_outlined, size: 16),
+                                        label: const Text('Gelap'),
+                                      ),
+                                      ButtonSegment(
+                                        value: ThemeMode.system,
+                                        icon: compactSegments
+                                            ? null
+                                            : const Icon(Icons.settings_suggest_outlined, size: 16),
+                                        label: const Text('Sistem'),
+                                      ),
+                                    ],
+                                    selected: {themeProvider.mode},
+                                    onSelectionChanged: (selection) {
+                                      themeProvider.setMode(selection.first);
+                                    },
+                                  );
                                 },
                               ),
                             ],
