@@ -51,22 +51,38 @@ class LoanCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            loan.title,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.titleSmall?.copyWith(
-                              fontWeight: FontWeight.w700,
-                              height: 1.25,
-                            ),
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final title = Text(
+                          loan.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            height: 1.25,
                           ),
-                        ),
-                        const SizedBox(width: 6),
-                        _StatusPill(loan: loan),
-                      ],
+                        );
+                        final pill = _StatusPill(loan: loan);
+
+                        if (constraints.maxWidth < 170) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              title,
+                              const SizedBox(height: 6),
+                              pill,
+                            ],
+                          );
+                        }
+
+                        return Row(
+                          children: [
+                            Expanded(child: title),
+                            const SizedBox(width: 6),
+                            pill,
+                          ],
+                        );
+                      },
                     ),
                     if (loan.author != null && loan.author!.isNotEmpty) ...[
                       const SizedBox(height: 2),

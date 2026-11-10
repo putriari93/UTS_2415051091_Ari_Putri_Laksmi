@@ -215,11 +215,12 @@ class _EditLoanScreenState extends State<EditLoanScreen> {
                       ),
                     ),
                     const SizedBox(height: 6),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: colors.surfaceContainerLowest,
+                    Material(
+                      color: colors.surfaceContainerLowest,
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(
+                        side: BorderSide(
                           color: colors.outlineVariant.withValues(alpha: 0.5),
                         ),
                       ),

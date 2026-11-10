@@ -86,20 +86,30 @@ class BookCard extends StatelessWidget {
                   children: [
                     Icon(Icons.calendar_today_rounded, size: 12, color: colors.onSurfaceVariant),
                     const SizedBox(width: 4),
-                    Text(
-                      book.firstPublishYear?.toString() ?? 'Tahun ?',
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: colors.onSurfaceVariant,
-                      ),
-                    ),
-                    const Spacer(),
-                    if (book.editionCount != null)
-                      Text(
-                        '${book.editionCount} edisi',
+                    Expanded(
+                      child: Text(
+                        book.firstPublishYear?.toString() ?? 'Tahun ?',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: theme.textTheme.labelSmall?.copyWith(
                           color: colors.onSurfaceVariant,
                         ),
                       ),
+                    ),
+                    if (book.editionCount != null) ...[
+                      const SizedBox(width: 6),
+                      Flexible(
+                        child: Text(
+                          '${book.editionCount} edisi',
+                          maxLines: 1,
+                          textAlign: TextAlign.right,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: colors.onSurfaceVariant,
+                          ),
+                        ),
+                      ),
+                    ],
                   ],
                 ),
               ],
