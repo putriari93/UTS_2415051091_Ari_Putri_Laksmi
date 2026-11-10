@@ -5,6 +5,7 @@ import '../core/utils/formatters.dart';
 import '../core/utils/feedback.dart';
 import '../models/book.dart';
 import '../models/book_detail.dart';
+import '../models/loan.dart';
 import '../providers/book_provider.dart';
 import '../providers/favorite_provider.dart';
 import '../providers/loan_provider.dart';
@@ -138,10 +139,11 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     );
   }
 
-  Widget _buildInformation(BuildContext context, dynamic activeLoan) {
+  Widget _buildInformation(BuildContext context, Loan? activeLoan) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final book = widget.book;
+    final isFavorite = context.watch<FavoriteProvider>().isFavorite(book.key);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -228,15 +230,9 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
               child: OutlinedButton.icon(
                 onPressed: _toggleFavorite,
                 icon: Icon(
-                  context.watch<FavoriteProvider>().isFavorite(book.key)
-                      ? Icons.favorite_rounded
-                      : Icons.favorite_border_rounded,
+                  isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
                 ),
-                label: Text(
-                  context.watch<FavoriteProvider>().isFavorite(book.key)
-                      ? 'Tersimpan'
-                      : 'Favorit',
-                ),
+                label: Text(isFavorite ? 'Tersimpan' : 'Favorit'),
               ),
             ),
           ],
@@ -319,7 +315,7 @@ class _AvailabilityCard extends StatelessWidget {
   const _AvailabilityCard({required this.book, required this.activeLoan});
 
   final Book book;
-  final dynamic activeLoan;
+  final Loan? activeLoan;
 
   @override
   Widget build(BuildContext context) {
