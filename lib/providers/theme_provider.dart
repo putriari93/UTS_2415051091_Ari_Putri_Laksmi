@@ -19,6 +19,12 @@ class ThemeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setMode(ThemeMode mode) {
+    if (_mode == mode) return;
+    _mode = mode;
+    notifyListeners();
+  }
+
   void useSystem() {
     _mode = ThemeMode.system;
     notifyListeners();
