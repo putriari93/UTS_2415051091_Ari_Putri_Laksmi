@@ -13,6 +13,18 @@
 | Tema | Sistem peminjaman buku |
 | Branch utama | `main` |
 
+## 1a. Bukti Pengumpulan
+
+| Item | Keterangan |
+|---|---|
+| Repository | https://github.com/putriari93/UTS_2415051091_Ari_Putri_Laksmi |
+| Riwayat commit | https://github.com/putriari93/UTS_2415051091_Ari_Putri_Laksmi/commits/main |
+| APK | `UTS_2415051091_Ari Putri Laksmi.apk` |
+| Dokumentasi | `UTS_2415051091_Ari Putri Laksmi.pdf` |
+| Screenshot | Folder `docs/screenshots/` berisi 9 gambar |
+
+Bukti `git log --oneline` disertakan pada lampiran PDF dokumentasi ini.
+
 ## 2. Gambaran Aplikasi
 
 Lentera Pustaka adalah aplikasi Flutter untuk mengelola peminjaman buku pribadi. Katalog buku diambil dari Open Library, sedangkan catatan peminjaman disimpan di Supabase.

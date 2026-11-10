@@ -9,6 +9,7 @@ Aplikasi mobile Flutter untuk mencari buku di Open Library, menyimpan buku favor
 | **Kelas** | PTI 5C |
 | **Semester** | 5 |
 | **Tema Project** | Sistem peminjaman buku |
+| **Repository** | https://github.com/putriari93/UTS_2415051091_Ari_Putri_Laksmi |
 | **Branch utama** | `main` |
 
 ## Deskripsi
@@ -151,8 +152,8 @@ Alur data: **UI → Provider → Repository → Service → REST API / Supabase*
 ### 1. Ambil source code
 
 ```bash
-git clone https://github.com/putriari93/uts_flutter_ui_fundamentals.git
-cd uts_flutter_ui_fundamentals
+git clone https://github.com/putriari93/UTS_2415051091_Ari_Putri_Laksmi.git
+cd UTS_2415051091_Ari_Putri_Laksmi
 flutter pub get
 ```
 
