@@ -100,10 +100,10 @@ insert into public.loans (
   borrowed_at, due_date, status, notes
 )
 select
-  '/works/OL2111129W',
-  'Placement of elderly people in private households in Brighton',
-  'Open Library',
-  null,
+  '/works/OL27482W',
+  'The Hobbit',
+  'J.R.R. Tolkien',
+  14627509,
   'Ari Putri Laksmi',
   'putri.ari@student.undiksha.ac.id',
   current_date - 25,
@@ -120,7 +120,7 @@ select
   '/works/OL27448W',
   'The Lord of the Rings',
   'J. R. R. Tolkien',
-  12589546,
+  14625765,
   'Ari Putri Laksmi',
   'putri.ari@student.undiksha.ac.id',
   current_date - 40,

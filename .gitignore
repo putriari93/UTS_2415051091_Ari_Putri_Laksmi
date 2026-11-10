@@ -49,3 +49,7 @@ app.*.map.json
 
 # Dokumen tugas
 project_uts.docx
+
+# Artefak pengumpulan
+/UTS_*.pdf
+/UTS_*.apk
