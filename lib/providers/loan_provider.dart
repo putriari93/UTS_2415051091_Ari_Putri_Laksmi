@@ -5,7 +5,7 @@ import '../repositories/loan_repository.dart';
 import '../services/app_exception.dart';
 
 class LoanProvider extends ChangeNotifier {
-  LoanProvider({required LoanRepository repository}) : _repository = repository;
+  LoanProvider(this._repository);
 
   final LoanRepository _repository;
 

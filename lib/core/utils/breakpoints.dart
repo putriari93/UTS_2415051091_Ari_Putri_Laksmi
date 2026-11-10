@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-
 class Breakpoints {
   const Breakpoints._();
 

@@ -7,7 +7,7 @@ import '../repositories/book_repository.dart';
 import '../services/app_exception.dart';
 
 class BookProvider extends ChangeNotifier {
-  BookProvider({required BookRepository repository}) : _repository = repository;
+  BookProvider(this._repository);
 
   final BookRepository _repository;
 
