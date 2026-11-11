@@ -23,7 +23,7 @@
 | Dokumentasi | `UTS_2415051091_Ari Putri Laksmi.pdf` |
 | Screenshot | Folder `docs/screenshots/` berisi 9 gambar |
 
-Bukti `git log --oneline` disertakan pada lampiran PDF dokumentasi ini.
+<img width="822" height="429" alt="image" src="https://github.com/user-attachments/assets/9b9b3c05-94ef-456e-b4ff-4e97ee4f4315" />
 
 ## 2. Gambaran Aplikasi
 
